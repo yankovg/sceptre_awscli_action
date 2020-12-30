@@ -1,0 +1,29 @@
+---
+name: "Sceptre GitHub Action"
+description: "Runs sceptre commands via GitHub Actions"
+branding:
+  icon: 'activity'
+  color: 'blue'
+inputs:
+  sceptre_subcommand:
+    description: "Sceptre subcommand to execute"
+    required: true
+  sceptre_version:
+    description: "Version of Sceptre to install"
+    required: false
+    default: "2.3.0"
+  sceptre_directory:
+    description: "Directory to execute Sceptre commands from"
+    required: false
+    default: ""
+  sceptre_troposphere:
+    description: "Specify if troposphere templates are used - 'true' or 'false'"
+    required: false
+    default: "false"
+  sceptre_troposphere_version:
+    description: "Version of troposphere to install"
+    required: false
+    default: "2.6.0"
+runs:
+    using: "docker"
+    image: "./Dockerfile"
